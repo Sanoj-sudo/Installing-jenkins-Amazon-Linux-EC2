@@ -1,0 +1,26 @@
+Follwoing commands and steps for installing Jenkins on Amazon Linux EC2:
+
+Step 1: Launch your Amazon EC2 instance and add rule in your security group port 80, port 8080, and 22.(Anaywhere put as a source type)
+Step 2: After launchhing the isntance run below commands one by one:
+
+sudo yum update –y
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+    
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+sudo yum upgrade
+sudo amazon-linux-extras install java-openjdk11 -y
+sudo yum install jenkins -y
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+
+Your are done with installation now you have to configure the jenkins and check the default password so that you can register on it and configure accordingly
+
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+as the above command you can view your default password.
+
+Now put that password and follow the further plugins installation steps.
+
+Now you are good to go work on Jenkins.
